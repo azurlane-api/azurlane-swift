@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Cheetah",
+        "repositoryURL": "https://github.com/OpenKitten/Cheetah.git",
+        "state": {
+          "branch": null,
+          "revision": "50f9605735311aaecba33c7d162f198d45c07e0d",
+          "version": "2.0.3-swift5"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
