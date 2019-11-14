@@ -7,8 +7,9 @@ public enum Category: String {
 }
 
 public struct AzurLane {
+    let version = "1.0.0"
     private let client: Client
-    private let userAgent = "azurlane-swift/v0.0.1 (https://github.com/azurlane-api/azurlane-swift)"
+    private let userAgent = "azurlane-swift/v\(version) (https://github.com/azurlane-api/azurlane-swift)"
 
     init(_ userAgent: String? = nil) {
         if let ua = userAgent {
