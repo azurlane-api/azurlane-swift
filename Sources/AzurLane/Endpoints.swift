@@ -1,6 +1,6 @@
 import Foundation
 
-struct Endpoints {
+internal struct Endpoints {
 
     private let base = URL(string: "https://azurlane-api.appspot.com")!
 

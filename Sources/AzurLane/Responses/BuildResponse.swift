@@ -1,12 +1,12 @@
 public struct Construction: Codable {
-    let time: String
-    let wikiUrl: String
-    let ships: [String]
+    public let time: String
+    public let wikiUrl: String
+    public let ships: [String]
 }
 
 public struct BuildResponse: Codable {
-    let statusCode: Int
-    let statusMessage: String
-    let message: String
-    let construction: Construction
+    public let statusCode: Int
+    public let statusMessage: String
+    public let message: String
+    public let construction: Construction
 }

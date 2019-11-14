@@ -1,6 +1,6 @@
 public struct ErrorResponse: Codable {
-    let statusCode: Int
-    let statusMessage: String
-    let message: String
-    let error: String?
+    public let statusCode: Int
+    public let statusMessage: String
+    public let message: String
+    public let error: String?
 }

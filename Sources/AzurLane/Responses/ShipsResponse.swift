@@ -1,11 +1,11 @@
 public struct SmallShip: Codable, Equatable {
-    let id: String
-    let name: String
+    public let id: String
+    public let name: String
 }
 
 public struct ShipsResponse: Codable {
-    let statusCode: Int
-    let statusMessage: String
-    let message: String
-    let ships: [SmallShip]
+    public let statusCode: Int
+    public let statusMessage: String
+    public let message: String
+    public let ships: [SmallShip]
 }

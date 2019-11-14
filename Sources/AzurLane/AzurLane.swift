@@ -7,7 +7,7 @@ public enum Category: String {
 }
 
 public struct AzurLane {
-    public let version = "1.0.0"
+    public let version = "1.0.2"
     private let client: Client
 
     public init(_ userAgent: String? = nil) {
