@@ -9,13 +9,12 @@ public enum Category: String {
 public struct AzurLane {
     let version = "1.0.0"
     private let client: Client
-    private let userAgent = "azurlane-swift/v\(version) (https://github.com/azurlane-api/azurlane-swift)"
 
     init(_ userAgent: String? = nil) {
         if let ua = userAgent {
             self.client = Client(ua)
         } else {
-            self.client = Client(self.userAgent)
+            self.client = Client("azurlane-swift/v\(version) (https://github.com/azurlane-api/azurlane-swift)")
         }
     }
 
