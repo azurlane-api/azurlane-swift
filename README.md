@@ -1,2 +1,4 @@
 # azurlane-swift
-(EXPERIMENTAL) Wrapper for the unofficial azur lane json api in Swift
+Wrapper for the unofficial azur lane json api in Swift
+
+## Example
