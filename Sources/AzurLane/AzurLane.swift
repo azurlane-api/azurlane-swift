@@ -7,7 +7,7 @@ public enum Category: String {
 }
 
 public struct AzurLane {
-    public let version = "1.0.2"
+    public let version = "1.1.0"
     private let client: Client
 
     public init(_ userAgent: String? = nil) {
@@ -27,7 +27,7 @@ public struct AzurLane {
     }
 
     public func getShips(from category: Category, with value: String, result: @escaping (Result<ShipsResponse, AzurLaneAPIError>) -> Void) {
-        client.fetchResource(.ships, params: [URLQueryItem(name: "orderBy", value: category.rawValue), URLQueryItem(name: category.rawValue, value: value)], completion: result)
+        client.fetchResource(.ships, params: [URLQueryItem(name: "category", value: category.rawValue), URLQueryItem(name: category.rawValue, value: value)], completion: result)
     }
 
     public func getBuildInfo(from time: String, result: @escaping (Result<BuildResponse, AzurLaneAPIError>) -> Void) {
