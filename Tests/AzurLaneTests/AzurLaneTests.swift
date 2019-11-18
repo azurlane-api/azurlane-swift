@@ -22,7 +22,7 @@ final class AzurLaneTests: XCTestCase {
             expectation.fulfill()
         }
 
-        waitForExpectations(timeout: 10)
+        waitForExpectations(timeout: 35) // 35 seconds because heroku puts the api to sleep when it's not being used
         XCTAssertEqual(res?.ship.names.en, "Prinz Eugen")
     }
 
@@ -41,7 +41,7 @@ final class AzurLaneTests: XCTestCase {
             expectation.fulfill()
         }
 
-        waitForExpectations(timeout: 10)
+        waitForExpectations(timeout: 35)
         XCTAssertEqual(res?.ships.first, SmallShip(id: "002", name: "Trial Bullin MKII"))
     }
 
