@@ -2,7 +2,7 @@ import XCTest
 @testable import AzurLane
 
 final class AzurLaneTests: XCTestCase {
-    let azurlane = AzurLane()
+    let azurlane = AzurLane(Options(token: ""))
 
     func testGetShipByName() throws {
         // This is an example of a functional test case.

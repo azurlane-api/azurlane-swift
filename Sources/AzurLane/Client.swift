@@ -5,6 +5,7 @@ import NIOHTTP1
 
 internal struct Client {
     var userAgent = ""
+    var token = ""
     let endpoints = Endpoints()
     let httpClient = HTTPClient(eventLoopGroupProvider: .createNew)
     // Seems like Cheetah.JSONDecoder() has issues decoding the returned json into my structs atm
@@ -20,8 +21,9 @@ internal struct Client {
     // let decoder = Cheetah.JSONDecoder()
     let decoder = JSONDecoder()
 
-    init(_ userAgent: String) {
-        self.userAgent = userAgent
+    init(_ options: Options) {
+        self.userAgent = options.userAgent
+        self.token = options.token
     }
 
     enum Resource {
@@ -43,6 +45,7 @@ internal struct Client {
         }
 
         var headers = HTTPHeaders()
+        headers.add(name: "Authorization", value: self.token)
         headers.add(name: "User-Agent", value: self.userAgent)
         guard let request = try? HTTPClient.Request(url: url.absoluteString, method: .GET, headers: headers) else {
             completion(.failure(AzurLaneAPIError(reason: .invalidRequest)))

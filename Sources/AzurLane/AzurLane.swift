@@ -6,16 +6,22 @@ public enum Category: String {
     case AFFILIATION = "affiliation"
 }
 
+public struct Options {
+    public var token: String
+    public var userAgent: String
+
+    public init(token: String, userAgent: String = "azurlane-swift/v\(AzurLane.version) (https://github.com/azurlane-api/azurlane-swift)") {
+        self.token = token
+        self.userAgent = userAgent
+    }
+}
+
 public struct AzurLane {
-    public let version = "1.1.0"
+    public static let version = "1.2.0"
     private let client: Client
 
-    public init(_ userAgent: String? = nil) {
-        if let ua = userAgent {
-            self.client = Client(ua)
-        } else {
-            self.client = Client("azurlane-swift/v\(version) (https://github.com/azurlane-api/azurlane-swift)")
-        }
+    public init(_ options: Options) {
+        self.client = Client(options)
     }
 
     public func getShipBy(name: String, result: @escaping (Result<ShipResponse, AzurLaneAPIError>) -> Void) {
