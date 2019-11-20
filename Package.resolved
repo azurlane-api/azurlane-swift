@@ -36,6 +36,15 @@
           "revision": "ccf96bbe65ecc7c1558ab0dba7ffabdea5c1d31f",
           "version": "2.4.4"
         }
+      },
+      {
+        "package": "SwiftDotEnv",
+        "repositoryURL": "https://github.com/SwiftOnTheServer/SwiftDotEnv.git",
+        "state": {
+          "branch": null,
+          "revision": "2a7527210766fc726fb3d26fa9b8f295841e73df",
+          "version": "2.0.1"
+        }
       }
     ]
   },

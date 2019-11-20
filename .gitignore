@@ -69,3 +69,5 @@ fastlane/test_output
 
 # IDE
 .idea/
+
+.env

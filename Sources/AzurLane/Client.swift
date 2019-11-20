@@ -1,5 +1,4 @@
 import Foundation
-// import Cheetah
 import AsyncHTTPClient
 import NIOHTTP1
 
@@ -8,17 +7,6 @@ internal struct Client {
     var token = ""
     let endpoints = Endpoints()
     let httpClient = HTTPClient(eventLoopGroupProvider: .createNew)
-    // Seems like Cheetah.JSONDecoder() has issues decoding the returned json into my structs atm
-    //
-    // <compiler-generated>:0: error: undefined reference to '$s7Cheetah11JSONDecoderCMa'
-    // <compiler-generated>:0: error: undefined reference to '$s7Cheetah11JSONDecoderCACycfC'
-    // /media/pepijn/Data/Projects/Swift/AzurLane/Sources/AzurLane/Client.swift:11: error: undefined reference to '$s7Cheetah11JSONDecoderCMa'
-    // /media/pepijn/Data/Projects/Swift/AzurLane/Sources/AzurLane/Client.swift:11: error: undefined reference to '$s7Cheetah11JSONDecoderCACycfC'
-    // clang-7: error: linker command failed with exit code 1 (use -v to see invocation)
-    // :0: error: link command failed with exit code 1 (use -v to see invocation)
-    // [2/3] Linking AzurLanePackageTests.xctest
-    //
-    // let decoder = Cheetah.JSONDecoder()
     let decoder = JSONDecoder()
 
     init(_ options: Options) {
@@ -68,22 +56,16 @@ internal struct Client {
                         return
                     }
 
-                    // guard let data = String(bytes: bytes, encoding: .utf8) else {
-                    //     completion(.failure(AzurLaneAPIError(reason: .decodeError, message: "Failed converting bytes to string")))
-                    //     return
-                    // }
-
                     guard 200..<299 ~= response.status.code else {
                         let error = try self.decoder.decode(ErrorResponse.self, from: Data(bytes))
-                        // let error = try self.decoder.decode(ErrorResponse.self, from: data)
                         completion(.failure(AzurLaneAPIError(reason: .invalidResponse, message: error.message)))
                         return
                     }
 
                     let values = try self.decoder.decode(T.self, from: Data(bytes))
-                    // let values = try self.decoder.decode(T.self, from: data)
                     completion(.success(values))
                 } catch {
+                    // print("Unexpected error: \(error).")
                     completion(.failure(AzurLaneAPIError(reason: .decodeError)))
                 }
             }

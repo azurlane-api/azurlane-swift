@@ -17,7 +17,7 @@ public struct Options {
 }
 
 public struct AzurLane {
-    public static let version = "1.2.0"
+    public static let version = "1.2.1"
     private let client: Client
 
     public init(_ options: Options) {

@@ -1,28 +1,28 @@
-public struct Names: Codable {
+public struct Names: Decodable {
     public let en: String?
     public let cn: String?
     public let jp: String?
     public let kr: String?
 }
 
-public struct Skin: Codable {
+public struct Skin: Decodable {
     public let title: String?
     public let image: String?
     public let chibi: String?
 }
 
-public struct Stars: Codable {
+public struct Stars: Decodable {
     public let value: String?
     public let count: Int
 }
 
-public struct Stat: Codable {
+public struct Stat: Decodable {
     public let name: String?
     public let image: String?
     public let value: String?
 }
 
-public struct Stats: Codable {
+public struct Stats: Decodable {
     public let level100: [Stat]?
     public let level120: [Stat]?
     public let base: [Stat]?
@@ -30,12 +30,12 @@ public struct Stats: Codable {
     public let retrofit120: [Stat]?
 }
 
-public struct MiscellaneousData: Codable {
+public struct MiscellaneousData: Decodable {
     public let link: String?
     public let name: String?
 }
 
-public struct Miscellaneous: Codable {
+public struct Miscellaneous: Decodable {
     public let artist: MiscellaneousData?
     public let web: MiscellaneousData?
     public let pixiv: MiscellaneousData?
@@ -43,7 +43,7 @@ public struct Miscellaneous: Codable {
     public let voiceActerss: MiscellaneousData?
 }
 
-public struct Ship: Codable {
+public struct Ship: Decodable {
     public let wikiUrl: String
     public let id: String?
     public let names: Names
@@ -60,7 +60,7 @@ public struct Ship: Codable {
     public let miscellaneous: Miscellaneous
 }
 
-public struct ShipResponse: Codable {
+public struct ShipResponse: Decodable {
     public let statusCode: Int
     public let statusMessage: String
     public let message: String

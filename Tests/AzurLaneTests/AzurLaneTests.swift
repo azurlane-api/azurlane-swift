@@ -1,8 +1,15 @@
 import XCTest
+import DotEnv
 @testable import AzurLane
 
 final class AzurLaneTests: XCTestCase {
-    let azurlane = AzurLane(Options(token: ""))
+    let env = DotEnv()
+    let azurlane: AzurLane
+
+    public required init(name: String, testClosure: @escaping XCTestCaseClosure) {
+        azurlane = AzurLane(Options(token: env.get("token") ?? ""))
+        super.init(name: name, testClosure: testClosure)
+    }
 
     func testGetShipByName() throws {
         // This is an example of a functional test case.
